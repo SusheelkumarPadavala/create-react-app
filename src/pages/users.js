@@ -4,24 +4,24 @@ import Thumbline from "../components/Thumbline"
 
 class Users extends React.Component {
 
-state ={
-   userInfo:[]
-}
-componentDidMount(){
-  const url ='https://randomuser.me/api/?results=5';
-  fetch(url).then(res=> res.json())
-            .catch(error => console.error('Error:', error))
-            .then((response)=>{
-              console.log("response=",response);
-              this.setState({
-                userInfo:response.results
-              }) 
-            })
+  state = {
+    userInfo: []
+  }
+  componentDidMount() {
+    const url = 'https://randomuser.me/api/?results=5';
+    fetch(url).then(res => res.json())
+      .catch(error => console.error('Error:', error))
+      .then((response) => {
+        console.log("response=", response);
+        this.setState({
+          userInfo: response.results
+        })
+      })
   }
 
- 
 
-  render () {
+
+  render() {
 
     //const thumbline= ()
 
@@ -29,19 +29,19 @@ componentDidMount(){
       <div>
         <h1 style={{ textAlign: "center", color: "blue" }}>All Users</h1>
         <Divider />
-          {
-            this.state.userInfo.map((row)=> 
-            
-              <Thumbline userInfo={row} />
-            )
-          }
+        {
+          this.state.userInfo.map((row) =>
+
+            <Thumbline userInfo={row} />
+          )
+        }
 
 
       </div>
     );
 
   }
- 
+
 };
 
 
